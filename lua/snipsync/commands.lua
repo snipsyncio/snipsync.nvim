@@ -13,6 +13,7 @@ local curl = function(path, output)
         "curl", "-s",
         "-o", output,
         "-w", "%{http_code}",
+        "-A", "snipsync.nvim/" .. config.get().version,
         "-H", "Authorization: Bearer " .. config.get().api_key,
         config.get().base_url .. path,
     }

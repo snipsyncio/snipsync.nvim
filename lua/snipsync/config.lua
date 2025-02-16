@@ -1,6 +1,7 @@
 local M = {}
 
 local config = {
+    version = "0.0.1",
     base_url = "https://app.snipsync.io",
     api_key = vim.env.SNIPSYNC_API_KEY,
     schedule_min = 5,
@@ -8,7 +9,7 @@ local config = {
 
 M.setup = function(opts)
     for key, value in pairs(opts) do
-        if config[key] ~= nil then
+        if config[key] ~= nil and key ~= "version" then
             config[key] = value
         end
     end
